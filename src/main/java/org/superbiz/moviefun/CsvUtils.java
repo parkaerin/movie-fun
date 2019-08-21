@@ -22,7 +22,7 @@ public class CsvUtils {
         if (scanner.hasNext()) {
             return scanner.next();
         } else {
-            return "";
+            return ""; 
         }
     }
 
