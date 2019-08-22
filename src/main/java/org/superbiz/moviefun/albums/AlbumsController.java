@@ -15,6 +15,7 @@ import org.superbiz.moviefun.blobstore.BlobStore;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -80,6 +81,8 @@ public class AlbumsController {
     @DeleteMapping("/covers")
     public String deleteCovers() {
         blobStore.deleteAll();
+        List<Album> albums = albumsBean.getAlbums();
+        albums.forEach(album->albumsBean.deleteAlbum(album));
         return "redirect:/albums";
     }
 
